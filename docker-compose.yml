@@ -1,0 +1,27 @@
+version: "3.7"
+
+services:
+  manual-calvo-nunca-mais:
+    image: manual-calvo-nunca-mais:latest
+    build: .
+    networks:
+      - UltramarNet
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints:
+          - node.role == manager
+      labels:
+        - traefik.enable=true
+        - traefik.http.routers.manual-calvo-nunca-mais.rule=Host(`calvo.rafaelultramar.com.br`)
+        - traefik.http.routers.manual-calvo-nunca-mais.entrypoints=websecure
+        - traefik.http.routers.manual-calvo-nunca-mais.tls.certresolver=letsencryptresolver
+        - traefik.http.routers.manual-calvo-nunca-mais.service=manual-calvo-nunca-mais
+        - traefik.http.services.manual-calvo-nunca-mais.loadbalancer.server.port=80
+        - traefik.http.services.manual-calvo-nunca-mais.loadbalancer.passHostHeader=true
+
+networks:
+  UltramarNet:
+    name: UltramarNet
+    external: true

@@ -1,0 +1,156 @@
+.slide {
+  background: var(--carbon);
+  color: var(--offwhite);
+  align-items: center;
+  justify-content: center;
+}
+
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  color: var(--offwhite);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-style: italic;
+  font-size: var(--fs-h2);
+  line-height: 1.4;
+  color: var(--vivid-red);
+  text-align: center;
+  text-wrap: balance;
+}
+
+/* ─── Dois boxes lado a lado ─── */
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-5);
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-6) var(--space-5);
+}
+
+.boxHead {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  color: var(--offwhite);
+  text-align: center;
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.boxHeadAlert {
+  color: var(--vivid-red);
+  border-bottom-color: rgba(203, 44, 48, 0.4);
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.list li {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.4;
+  color: var(--text-on-dark-soft);
+  padding-left: 20px;
+  position: relative;
+}
+
+.list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 1px;
+  background: var(--text-on-dark-muted);
+}
+
+.boxAlert .list li::before {
+  background: var(--vivid-red);
+}
+
+.identity {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--text-on-dark-soft);
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.identity strong {
+  color: var(--offwhite);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .boxes {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tarja vermelha abaixo do subtítulo. */
+.tag {
+  display: inline-block;
+  align-self: center;
+  background: var(--vivid-red);
+  color: var(--offwhite-1);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  letter-spacing: 0.04em;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-1);
+}

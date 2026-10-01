@@ -1,0 +1,76 @@
+.slide {
+  background: var(--offwhite);
+  color: var(--text-on-light);
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  color: var(--text-on-light);
+  text-align: center;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Cada linha do título é um bloco próprio (substitui o <br />) para que o
+   Reveal possa animá-la individualmente com transform. */
+.titleLine {
+  display: block;
+}
+
+.accent {
+  color: var(--vivid-red);
+}
+
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid var(--line-on-light);
+  padding-top: var(--space-6);
+  text-align: center;
+}
+
+.note {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  line-height: 1.5;
+  color: var(--text-on-light-muted);
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  text-align: center;
+}
+
+.ruleLine {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  color: var(--text-on-light);
+  text-align: center;
+}
+
+.ruleLine strong {
+  font-weight: 600;
+}

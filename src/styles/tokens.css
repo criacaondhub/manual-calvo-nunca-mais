@@ -1,0 +1,60 @@
+:root {
+  /* Marca — Manual de Identidade Visual Rafael Ultramar */
+  --carbon: #050506;
+  --carbon-1: #2A2C2B;
+  --carbon-2: #343634;
+  --vivid-red: #CB2C30;
+  --vivid-red-dim: #8E2023;
+  --offwhite: #D1CCBD;
+  --offwhite-1: #E7E3D7;
+  --offwhite-2: #BDB7A4;
+
+  /* Texto sobre fundo escuro */
+  --text-on-dark: #D1CCBD;
+  --text-on-dark-muted: #938D7D;
+  --text-on-dark-soft: #AFAA99;
+
+  /* Texto sobre fundo claro */
+  --text-on-light: #212322;
+  --text-on-light-muted: #5B5D57;
+
+  /* Linhas / divisores */
+  --line-on-dark: rgba(209, 204, 189, 0.14);
+  --line-on-light: rgba(33, 35, 34, 0.14);
+
+  /* Tipografia
+     Títulos: Hanover ainda não foi fornecida com cobertura completa de acentos
+     em português (faltam glifos maiúsculos acentuados: Â Ã Ê Ô Õ), necessários
+     porque os títulos usam text-transform: uppercase. Anton (Google Fonts) é o
+     substituto temporário até uma versão completa da Hanover ser entregue.
+     Texto corrido: Hero New Medium — fonte real, carregada via @font-face
+     local (index.html / public/fonts/hero-new). */
+  --font-display: 'Anton', 'Arial Narrow', sans-serif;
+  /* Escala de títulos (mobile 24-32px / desktop 40-64px no H1) */
+  --fs-h1: clamp(1.5rem, 5vw, 4rem);          /* 24px → 64px */
+  --fs-h2: clamp(1rem, 1.6vw, 1.25rem);       /* 16px → 20px */
+  --fs-h3: clamp(0.875rem, 1.2vw, 0.9375rem); /* 14px → 15px */
+
+  --font-body: 'Hero New', Verdana, sans-serif;
+
+  /* Espaçamento (base 8px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 128px;
+  --space-10: 160px;
+
+  /* Raio */
+  --radius-sm: 2px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Transições */
+  --transition-base: 300ms ease-out;
+  --transition-slide: 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

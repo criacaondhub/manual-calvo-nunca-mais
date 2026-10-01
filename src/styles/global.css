@@ -1,0 +1,244 @@
+@import './tokens.css';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--carbon);
+  color: var(--offwhite);
+  font-family: var(--font-body);
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Scroll container horizontal ─── */
+.slides-track {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.slides-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* ─── Slide base ─── */
+.slide {
+  flex: 0 0 100vw;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  overflow: hidden;
+  padding: clamp(2rem, 5vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  contain: layout paint;
+}
+
+/* ─── Tipografia base ─── */
+h1, h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.01em;
+  line-height: 1.02;
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* ─── Componentes globais ─── */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: var(--vivid-red);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--vivid-red);
+  color: var(--offwhite-1);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 18px 40px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background var(--transition-base), transform var(--transition-base);
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: #E13338;
+  transform: scale(1.02);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  color: var(--offwhite);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 18px 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-on-dark);
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color var(--transition-base);
+}
+
+.btn-secondary:hover {
+  border-color: var(--vivid-red);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-on-dark), transparent);
+  border: none;
+}
+
+/* ─── Mobile: scroll vertical ─── */
+@media (max-width: 768px) {
+  html, body, #root {
+    overflow: auto;
+  }
+
+  .slides-track {
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+
+  .slide {
+    flex: 0 0 100svh;
+    width: 100%;
+  }
+}
+
+/* ─── Glassmorphism + brilho diagonal no hover (boxes dos slides) ───
+   O brilho é um ::before com border-radius herdado, então ele nunca
+   pinta fora do box — sem precisar de overflow:hidden, que cortaria
+   elementos decorativos posicionados fora do card (ex: as setas do
+   slide 05). */
+.glass {
+  position: relative;
+  background: rgba(5, 5, 6, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: var(--radius-md);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(
+    -30deg,
+    hsla(0, 0%, 100%, 0) 60%,
+    rgba(255, 255, 255, 0.28) 70%,
+    hsla(0, 0%, 100%, 0) 100%
+  );
+  background-size: 300% 300%;
+  background-repeat: no-repeat;
+  background-position: -100% -100%;
+  transition: background-position 800ms ease;
+}
+
+.glass:hover {
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+.glass:hover::before {
+  background-position: 100% 100%;
+}
+
+/* Variante para slides de fundo claro. */
+.glass-light {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: rgba(33, 35, 34, 0.14);
+  box-shadow: 0 8px 32px rgba(33, 35, 34, 0.12);
+}
+
+.glass-light::before {
+  background: linear-gradient(
+    -30deg,
+    hsla(0, 0%, 100%, 0) 60%,
+    rgba(255, 255, 255, 0.75) 70%,
+    hsla(0, 0%, 100%, 0) 100%
+  );
+}
+
+.glass-light:hover {
+  border-color: rgba(33, 35, 34, 0.26);
+  box-shadow: 0 12px 40px rgba(33, 35, 34, 0.18);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass::before {
+    transition: none;
+  }
+}
+
+/* Mantém o vidro, desliga o brilho e a reação no hover. */
+.glass.no-hover::before {
+  display: none;
+}
+
+.glass.no-hover:hover {
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.glass.glass-light.no-hover:hover {
+  border-color: rgba(33, 35, 34, 0.14);
+  box-shadow: 0 8px 32px rgba(33, 35, 34, 0.12);
+}

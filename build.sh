@@ -1,0 +1,1 @@
+git pull origin main && docker build -t manual-calvo-nunca-mais:latest . && docker stack deploy -c docker-compose.yml manual-calvo-nunca-mais && docker service update --image manual-calvo-nunca-mais:latest --force manual-calvo-nunca-mais_manual-calvo-nunca-mais

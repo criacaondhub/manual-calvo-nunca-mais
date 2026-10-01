@@ -1,0 +1,94 @@
+.slide {
+  background: var(--carbon);
+  color: var(--offwhite);
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-6);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  color: var(--offwhite);
+  text-align: center;
+  text-wrap: balance;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+  width: 100%;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-5) var(--space-4);
+  text-align: center;
+}
+
+.stepNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.75rem;
+  height: 2.75rem;
+  padding: 0 var(--space-2);
+  background: var(--vivid-red);
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: clamp(1.4rem, 1.9vw, 1.75rem);
+  line-height: 1;
+  border-radius: var(--radius-sm);
+}
+
+.stepTitle {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--fs-h3);
+  line-height: 1.25;
+  color: var(--offwhite);
+  min-height: 56px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.stepDesc {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.78rem, 0.9vw, 0.88rem);
+  line-height: 1.42;
+  color: var(--text-on-dark-soft);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.footer {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  color: var(--offwhite);
+  border-top: 1px solid var(--line-on-dark);
+  padding-top: var(--space-5);
+  max-width: 1100px;
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+  text-wrap: pretty;
+}

@@ -1,0 +1,108 @@
+.slide {
+  background: var(--carbon);
+  color: var(--offwhite);
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  z-index: 2;
+}
+
+.kicker {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vivid-red);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-h1);
+  line-height: 1.12;
+  max-width: 1000px;
+  color: var(--offwhite);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  color: var(--text-on-dark-soft);
+}
+
+.question {
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 1px solid var(--line-on-dark);
+  padding-top: var(--space-5);
+}
+
+.question p {
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.15vw, 1.15rem);
+  color: var(--text-on-dark-soft);
+}
+
+.questionAccent {
+  font-family: var(--font-body) !important;
+  font-weight: 700 !important;
+  font-size: clamp(1.5rem, 2.6vw, 2.2rem) !important;
+  color: var(--offwhite) !important;
+}
+
+.ctas {
+  z-index: 2;
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--vivid-red);
+  color: var(--offwhite-1);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 20px 36px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: background var(--transition-base), transform var(--transition-base);
+}
+
+.ctaPrimary:hover {
+  background: #E13338;
+  transform: scale(1.02);
+}
+
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: transparent;
+  color: var(--offwhite);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 20px 36px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line-on-dark);
+  text-decoration: none;
+  transition: border-color var(--transition-base);
+}
+
+.ctaSecondary:hover {
+  border-color: var(--vivid-red);
+}

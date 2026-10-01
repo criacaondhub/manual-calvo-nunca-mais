@@ -1,0 +1,28 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.clip {
+  width: 100%;
+  height: 100%;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.glint {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.9), transparent);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  will-change: left, opacity;
+}

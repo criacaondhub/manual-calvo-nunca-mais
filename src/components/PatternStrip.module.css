@@ -1,0 +1,27 @@
+.strip {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: clamp(24px, 2.5vw, 44px);
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  right: 0;
+}
+
+/* Some slides stack vertically on mobile (see global.css) — the strip
+   has no safe gutter left there, so it's hidden rather than risk
+   overlapping text. */
+@media (max-width: 768px) {
+  .strip {
+    display: none;
+  }
+}

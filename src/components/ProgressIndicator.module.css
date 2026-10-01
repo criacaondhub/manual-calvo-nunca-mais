@@ -1,0 +1,28 @@
+.indicator {
+  position: fixed;
+  bottom: clamp(1.5rem, 3vw, 2rem);
+  right: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.current {
+  color: var(--vivid-red);
+}
+
+.separator {
+  color: #8C8880;
+  opacity: 0.5;
+}
+
+.total {
+  color: #8C8880;
+  opacity: 0.6;
+}
