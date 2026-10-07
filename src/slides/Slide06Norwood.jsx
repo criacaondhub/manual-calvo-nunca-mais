@@ -2,8 +2,7 @@ import styles from './Slide06Norwood.module.css'
 import Reveal from '../components/Reveal'
 import PatternStrip from '../components/PatternStrip'
 
-// Escala de Norwood-Hamilton: 7 graus. As imagens ainda não foram
-// fornecidas — os slots apontam para public/images/norwood/.
+// Escala de Norwood-Hamilton: 7 graus. SVGs em public/images/norwood/
 const GRAUS = [1, 2, 3, 4, 5, 6, 7]
 
 const CARDS = [
@@ -41,7 +40,7 @@ export default function Slide06Norwood({ active }) {
           {GRAUS.map((g, i) => (
             <Reveal as="div" active={active} index={3 + i} className={styles.grauSlot} key={g}>
               <img
-                src={`/images/norwood/grau-${g}.png`}
+                src={`/images/norwood/grau-${g}.svg`}
                 alt={`Escala de Norwood-Hamilton — grau ${g}`}
                 className={styles.grauImg}
               />
