@@ -119,12 +119,51 @@
   text-wrap: balance;
 }
 
+/* ─── Stories (mobile): dividido em dois stories (graus 1–4 / 5–7).
+   Cada grau num box próprio, grade de 2 colunas. ─── */
 @media (max-width: 768px) {
+  .content {
+    gap: var(--space-5);
+  }
+
+  .header {
+    gap: var(--space-2);
+  }
+
   .scale {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .grauSlot {
+    gap: 6px;
+    padding: 14px 10px 10px;
+    border: 1px solid var(--vivid-red);
+    border-radius: var(--radius-md);
+  }
+
+  /* Número ímpar de graus (5–7): o último box fica centralizado, com a
+     mesma largura dos outros. */
+  .grauSlot:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 5px);
+  }
+
+  .grauLabel {
+    font-size: 0.68rem;
   }
 
   .compare {
-    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-1);
+  }
+
+  .result {
+    font-size: 0.9rem;
   }
 }

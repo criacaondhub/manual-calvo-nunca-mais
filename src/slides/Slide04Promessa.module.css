@@ -143,3 +143,61 @@
   text-align: center;
   margin-top: var(--space-2);
 }
+
+/* ─── Stories (mobile): card centralizado — número + título na mesma
+   linha, descrição embaixo ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-5);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .item {
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    align-items: center;
+    gap: 4px 10px;
+    padding: 14px var(--space-3);
+  }
+
+  .item > div {
+    display: contents;
+  }
+
+  .num {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 1.15rem;
+  }
+
+  .itemTitle {
+    grid-column: 3;
+    grid-row: 1;
+    margin: 0;
+    text-align: left;
+  }
+
+  .itemDesc {
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
+    max-width: none;
+  }
+
+  .footer {
+    gap: var(--space-3);
+  }
+
+  .statement,
+  .question {
+    font-size: 0.92rem;
+  }
+
+  .question span {
+    font-size: 1.1rem;
+  }
+}

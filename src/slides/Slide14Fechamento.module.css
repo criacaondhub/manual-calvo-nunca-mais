@@ -87,22 +87,79 @@
   transform: scale(1.02);
 }
 
-.ctaSecondary {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  background: transparent;
-  color: var(--offwhite);
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 1rem;
-  padding: 20px 36px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--line-on-dark);
-  text-decoration: none;
-  transition: border-color var(--transition-base);
+
+
+/* ─── Stories (mobile): CTAs empilhados em largura total ─── */
+@media (max-width: 768px) {
+  .slide {
+    gap: var(--space-5);
+  }
+
+  /* Conteúdo todo centralizado no story. */
+  .top,
+  .question {
+    align-items: center;
+    text-align: center;
+  }
+
+  .question {
+    width: 100%;
+  }
+
+  .kicker {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-wrap: balance;
+  }
+
+  /* A quebra do desktop deixa "esse problema." solto no mobile. */
+  .title {
+    text-wrap: balance;
+  }
+
+  .title br {
+    display: none;
+  }
+
+  .lead {
+    text-wrap: balance;
+  }
+
+  .questionAccent {
+    text-wrap: balance;
+  }
+
+  .lead,
+  .question p {
+    font-size: 0.92rem;
+  }
+
+  .question {
+    padding-top: var(--space-4);
+  }
+
+  .questionAccent {
+    font-size: 1.35rem !important;
+    line-height: 1.25;
+  }
+
+  .ctas {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .ctaPrimary {
+    justify-content: center;
+    text-align: center;
+    padding: 16px 20px;
+    font-size: 0.92rem;
+  }
 }
 
-.ctaSecondary:hover {
-  border-color: var(--vivid-red);
+/* Fundo animado (Grainient), igual aos demais slides escuros. */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }

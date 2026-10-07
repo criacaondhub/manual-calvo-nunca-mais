@@ -37,7 +37,11 @@ export default function Slide01Capa({ active }) {
         </div>
 
         <Reveal as="p" active={active} index={1} delay={1.55} className={styles.footer}>
-          Dr. Rafael Ultramar&nbsp; · &nbsp;Cirurgião especialista em restauração capilar&nbsp; · &nbsp;Clínica Ultramar
+          <span>Dr. Rafael Ultramar</span>
+          <span className={styles.sep}>&nbsp; · &nbsp;</span>
+          <span>Cirurgião especialista em restauração capilar</span>
+          <span className={styles.sep}>&nbsp; · &nbsp;</span>
+          <span>Clínica Ultramar</span>
         </Reveal>
       </div>
 

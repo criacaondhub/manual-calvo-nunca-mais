@@ -1,9 +1,20 @@
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useLayoutEffect, useRef, useCallback } from 'react'
 
-export default function SlideContainer({ children, onSlideChange, onNavigate }) {
+export default function SlideContainer({ children, initialSlide = 0, onSlideChange, onNavigate }) {
   const trackRef = useRef(null)
-  const currentSlide = useRef(0)
+  const currentSlide = useRef(initialSlide)
   const wheelLockRef = useRef(false)
+
+  // Abre direto no slide salvo (retomar leitura), sem animar a rolagem —
+  // um scroll suave passaria pelos slides do meio e o syncFromScroll
+  // salvaria posições intermediárias.
+  useLayoutEffect(() => {
+    const track = trackRef.current
+    if (!track || initialSlide === 0) return
+    track.scrollTo({ left: initialSlide * track.clientWidth, behavior: 'instant' })
+    // Só na montagem: depois disso quem manda é o scroll.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   // Sincroniza o índice atual quando o scroll muda por outro motivo
   // (arrasto de trackpad/touch em dispositivos que não passam pelo wheel).

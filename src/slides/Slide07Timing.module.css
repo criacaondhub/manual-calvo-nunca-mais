@@ -154,3 +154,46 @@
   border-radius: var(--radius-sm);
   margin-top: var(--space-1);
 }
+
+/* ─── Stories (mobile) ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-4);
+  }
+
+  .boxes {
+    gap: 10px;
+  }
+
+  .box {
+    padding: var(--space-3) var(--space-4) var(--space-4);
+    gap: var(--space-3);
+  }
+
+  .boxHead {
+    font-size: 0.9rem;
+    padding-bottom: 10px;
+  }
+
+  .list {
+    gap: var(--space-2);
+  }
+
+  .list li {
+    font-size: 0.86rem;
+  }
+
+  .identity {
+    font-size: 0.88rem;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* "Mas importa." ganha linha própria — sem viúva na tarja. */
+  .tagEnd {
+    display: block;
+  }
+}

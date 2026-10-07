@@ -247,6 +247,9 @@ const Grainient = ({
       document.removeEventListener('visibilitychange', onVisibility);
       ctxMap.delete(container);
       try { container.removeChild(canvas); } catch { /* ignore */ }
+      // No modo stories (mobile) os slides montam/desmontam a cada toque;
+      // sem liberar o contexto, o navegador acumula até o limite de WebGL.
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, []); // renderer created once
 

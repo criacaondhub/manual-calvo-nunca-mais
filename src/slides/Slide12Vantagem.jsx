@@ -61,9 +61,12 @@ export default function Slide12Vantagem({ active }) {
           index={base + CEDO.length + POSTERGAR.length}
           className={styles.closing}
         >
-          Você pode até escolher não fazer nada. Mas essa<br />
-          também é uma decisão, e ela traz consequências.<br />
-          A pergunta não é "se" a calvície vai progredir. A pergunta é:
+          {/* Os espaços antes de cada <br /> seguram a separação das palavras
+              quando as quebras somem no mobile. */}
+          Você pode até escolher não fazer nada. Mas essa{' '}<br />
+          também é uma decisão, e ela traz consequências.{' '}<br />
+          A pergunta não é "se" a calvície vai progredir.{' '}
+          <span className={styles.closingAsk}>A pergunta é:</span>
         </Reveal>
 
         <Reveal

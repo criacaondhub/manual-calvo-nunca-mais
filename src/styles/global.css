@@ -139,22 +139,51 @@ p {
   border: none;
 }
 
-/* ─── Mobile: scroll vertical ─── */
+/* ─── Mobile: stories (ver StoriesContainer) ───
+   Um slide por vez ocupando a tela toda. O padding de cima deixa espaço
+   para as barras de progresso; se o conteúdo não couber, o próprio slide
+   rola na vertical. `safe center` evita que a centralização corte o topo
+   quando há overflow. */
 @media (max-width: 768px) {
+  :root {
+    --fs-h1: clamp(1.6rem, 7.4vw, 2.2rem);
+    --fs-h2: clamp(0.95rem, 4.2vw, 1.1rem);
+    --fs-h3: clamp(0.9rem, 4vw, 1rem);
+  }
+
   html, body, #root {
-    overflow: auto;
+    overscroll-behavior: none;
   }
 
-  .slides-track {
-    flex-direction: column;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-  }
-
-  .slide {
-    flex: 0 0 100svh;
+  .stories .slide {
     width: 100%;
+    height: 100%;
+    padding: calc(env(safe-area-inset-top, 0px) + 40px) 20px calc(env(safe-area-inset-bottom, 0px) + 28px);
+    justify-content: safe center;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: none;
+    contain: none;
+  }
+
+  .stories .slide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Sem viúvas nos textos. :where zera a especificidade, então quem já
+     define text-wrap no módulo (ex.: balance nos títulos) prevalece. */
+  :where(.stories .slide) :where(p, li, h2, h3) {
+    text-wrap: pretty;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+  }
+
+  /* Sem hover no touch: o brilho ficaria "preso" após um toque. */
+  .glass::before {
+    display: none;
   }
 }
 

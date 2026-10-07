@@ -1,6 +1,8 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import SlideContainer from './components/SlideContainer'
 import ProgressIndicator from './components/ProgressIndicator'
+import StoriesContainer from './components/StoriesContainer'
+import useIsMobile from './hooks/useIsMobile'
 
 import Slide01Capa from './slides/Slide01Capa'
 import Slide02Espelho from './slides/Slide02Espelho'
@@ -34,8 +36,45 @@ const SLIDES = [
   Slide14Fechamento,   // 14 · Controle é uma escolha — fechamento + CTAs
 ]
 
+// No mobile, slides densos demais para uma tela declaram `mobileParts`
+// e viram mais de um story.
+const MOBILE_SLIDES = SLIDES.flatMap((S) => S.mobileParts ?? [S])
+
+// Retoma a leitura de onde a pessoa parou (recarregar ou voltar outro
+// dia). Mobile e desktop têm contagens diferentes, então cada formato
+// guarda a própria posição. localStorage pode estar bloqueado (aba
+// anônima, dados limpos) — aí simplesmente começa da capa.
+const storageKey = (mobile) => `calvo-nunca-mais:slide:${mobile ? 'mobile' : 'desktop'}`
+
+function readSlide(mobile) {
+  const total = mobile ? MOBILE_SLIDES.length : SLIDES.length
+  try {
+    const saved = Number(localStorage.getItem(storageKey(mobile)))
+    return Number.isInteger(saved) && saved >= 0 && saved < total ? saved : 0
+  } catch {
+    return 0
+  }
+}
+
 export default function App() {
-  const [currentSlide, setCurrentSlide] = useState(0)
+  const isMobile = useIsMobile()
+  const [mode, setMode] = useState(isMobile)
+  const [currentSlide, setCurrentSlide] = useState(() => readSlide(isMobile))
+
+  // Trocou de formato (girou o tablet, redimensionou a janela): carrega a
+  // posição salva do outro formato antes de renderizar.
+  if (mode !== isMobile) {
+    setMode(isMobile)
+    setCurrentSlide(readSlide(isMobile))
+  }
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(storageKey(mode), String(currentSlide))
+    } catch {
+      /* sem storage: só não lembra a posição */
+    }
+  }, [mode, currentSlide])
 
   const handleSlideChange = useCallback((index) => {
     setCurrentSlide(index)
@@ -55,9 +94,18 @@ export default function App() {
     })
   }, [])
 
+  if (isMobile) {
+    return <StoriesContainer slides={MOBILE_SLIDES} current={currentSlide} onChange={setCurrentSlide} />
+  }
+
   return (
     <>
-      <SlideContainer onSlideChange={handleSlideChange} onNavigate={navigate} totalSlides={SLIDES.length}>
+      <SlideContainer
+        initialSlide={currentSlide}
+        onSlideChange={handleSlideChange}
+        onNavigate={navigate}
+        totalSlides={SLIDES.length}
+      >
         {SLIDES.map((SlideComponent, index) => (
           <SlideComponent key={index} active={currentSlide === index} />
         ))}

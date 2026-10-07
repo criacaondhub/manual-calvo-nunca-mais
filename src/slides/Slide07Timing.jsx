@@ -95,7 +95,7 @@ export default function Slide07Timing({ active }) {
           index={base + CEDO.length + ESPERA.length + 1}
           className={styles.tag}
         >
-          Você pode até fingir que não importa. Mas importa.
+          Você pode até fingir que não importa. <span className={styles.tagEnd}>Mas importa.</span>
         </Reveal>
       </div>
     </section>

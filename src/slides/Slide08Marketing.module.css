@@ -86,3 +86,43 @@
 .icon {
   color: var(--vivid-red);
 }
+
+/* ─── Stories (mobile) ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-5);
+  }
+
+  /* H1 menor que o padrão mobile: o destaque do slide são os boxes. */
+  .title {
+    font-size: clamp(1.4rem, 6.4vw, 1.8rem);
+  }
+
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    justify-content: center;
+    padding: var(--space-5) var(--space-3);
+    gap: var(--space-3);
+    min-height: 170px;
+  }
+
+  .icon {
+    width: 44px;
+    height: 44px;
+    stroke-width: 1.8;
+  }
+
+  .cardText {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-on-light);
+  }
+}

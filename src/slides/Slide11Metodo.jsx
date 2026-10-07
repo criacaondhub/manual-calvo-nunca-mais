@@ -18,18 +18,27 @@ function Frame({ src, label }) {
   )
 }
 
-export default function Slide11Metodo({ active }) {
+// `part` divide o slide em dois stories no mobile (ver mobileParts no fim
+// do arquivo): 1 = cabeçalho + graus 04–05, 2 = graus 06–07. Sem `part`
+// (desktop), mostra tudo.
+export default function Slide11Metodo({ active, part }) {
+  const casos = part === 1 ? CASOS.slice(0, 2) : part === 2 ? CASOS.slice(2) : CASOS
+  const showTitle = part !== 2
+  const casoBase = showTitle ? 2 : 1
+
   return (
     <section className={`slide ${styles.slide}`}>
       <PatternStrip side="right" active={active} />
       <div className={styles.header}>
         <Reveal as="p" active={active} index={0} className="eyebrow">Método Ultramar · Transplante Capilar</Reveal>
-        <Reveal as="h2" active={active} index={1} className={styles.title}>Resultado elegante, atemporal e extremamente natural.</Reveal>
+        {showTitle && (
+          <Reveal as="h2" active={active} index={1} className={styles.title}>Resultado elegante, atemporal e extremamente natural.</Reveal>
+        )}
       </div>
 
       <div className={styles.grid}>
-        {CASOS.map((c, i) => (
-          <Reveal as="div" active={active} index={2 + i} className={`glass glass-light ${styles.caso}`} key={c.grau}>
+        {casos.map((c, i) => (
+          <Reveal as="div" active={active} index={casoBase + i} className={`glass glass-light ${styles.caso}`} key={c.grau}>
             <span className={styles.grau}>Grau {c.grau}</span>
             <div className={styles.pair}>
               <Frame src={c.antes} label="Antes" />
@@ -41,3 +50,9 @@ export default function Slide11Metodo({ active }) {
     </section>
   )
 }
+
+// No mobile (stories) os 4 antes/depois ficam pequenos demais numa tela só.
+Slide11Metodo.mobileParts = [
+  (props) => <Slide11Metodo {...props} part={1} />,
+  (props) => <Slide11Metodo {...props} part={2} />,
+]

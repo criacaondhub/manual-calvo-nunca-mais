@@ -143,3 +143,58 @@
   text-align: center;
   text-wrap: balance;
 }
+
+/* ─── Stories (mobile): fluxo vertical, card centralizado (número +
+   título na mesma linha), seta para baixo no meio do vão entre cards ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-4);
+  }
+
+  .header {
+    gap: var(--space-3);
+  }
+
+  .lead {
+    font-size: 0.88rem;
+  }
+
+  .flow {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .step {
+    gap: 4px;
+    padding: 12px var(--space-3);
+  }
+
+  .stepHead {
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .stepNum {
+    font-size: 0.85rem;
+  }
+
+  .stepDesc {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+
+  .arrow {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -10px;
+    transform: translate(-50%, 50%) rotate(90deg);
+    font-size: 0.85rem;
+    line-height: 1;
+  }
+
+  .footerNote {
+    font-size: 0.95rem;
+    padding-top: var(--space-4);
+  }
+}

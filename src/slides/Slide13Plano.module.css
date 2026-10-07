@@ -92,3 +92,66 @@
   text-align: center;
   text-wrap: pretty;
 }
+
+/* ─── Stories (mobile): card centralizado — número + título na mesma
+   linha, descrição embaixo ─── */
+@media (max-width: 768px) {
+  .slide {
+    gap: var(--space-4);
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .step {
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    align-items: center;
+    gap: 6px 10px;
+    padding: 12px var(--space-3);
+  }
+
+  .stepNum {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    min-width: 1.9rem;
+    height: 1.9rem;
+    font-size: 1.05rem;
+  }
+
+  .stepTitle {
+    grid-column: 3;
+    grid-row: 1;
+    min-height: 0;
+    text-align: left;
+  }
+
+  .stepDesc {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    font-size: 0.85rem;
+    padding-top: var(--space-4);
+  }
+}
+
+/* Fundo animado (Grainient), igual aos demais slides escuros. */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Conteúdo acima do fundo animado. */
+.header,
+.steps,
+.footer {
+  position: relative;
+  z-index: 2;
+}

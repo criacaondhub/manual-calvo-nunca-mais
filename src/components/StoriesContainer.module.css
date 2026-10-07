@@ -1,0 +1,90 @@
+.stories {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--carbon);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.page {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+/* ─── Barras de progresso (topo) ───
+   mix-blend-mode: difference mantém as barras legíveis tanto nos slides
+   escuros quanto nos de fundo off-white, sem precisar saber o tema. */
+.chrome {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: calc(env(safe-area-inset-top, 0px) + 10px) 10px 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+
+.bars {
+  display: flex;
+  gap: 4px;
+}
+
+.bar {
+  flex: 1;
+  height: 2.5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: #FFFFFF;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 350ms ease-out;
+}
+
+.filled {
+  transform: scaleX(1);
+}
+
+/* ─── Dica de navegação (só na capa) ─── */
+.hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
+  z-index: 50;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  pointer-events: none;
+}
+
+.hint span {
+  display: inline-block;
+  animation: nudge 1.4s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hint span {
+    animation: none;
+  }
+}

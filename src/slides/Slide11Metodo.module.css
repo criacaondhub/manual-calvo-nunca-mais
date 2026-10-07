@@ -60,6 +60,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Retratos de frente: ancora no alto para nunca cortar a linha do
+     cabelo, que é o ponto do antes/depois. */
+  object-position: center 30%;
   display: block;
 }
 
@@ -76,4 +79,59 @@
   background: rgba(33, 35, 34, 0.55);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
+}
+
+/* ─── Stories (mobile): dividido em dois stories (graus 04–05 / 06–07).
+   Um caso por linha, antes/depois lado a lado em tamanho grande. ─── */
+@media (max-width: 768px) {
+  .slide {
+    gap: var(--space-5);
+  }
+
+  .header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .title {
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    flex: 0 0 auto;
+  }
+
+  .caso {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .grau {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .pair {
+    flex-direction: row;
+    gap: 6px;
+  }
+
+  /* Altura amarrada à tela: cabeçalho + 2 casos sempre cabem sem
+     rolagem, em qualquer altura de celular. */
+  .frame {
+    flex: 1 1 0;
+    min-height: 0;
+    height: clamp(120px, calc((100svh - 340px) / 2), 230px);
+    border-radius: 6px;
+  }
+
+  .frameLabel {
+    left: 8px;
+    bottom: 8px;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
 }

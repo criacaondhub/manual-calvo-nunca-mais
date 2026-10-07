@@ -142,3 +142,59 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ─── Stories (mobile): card centralizado — número + título na mesma
+   linha, descrição embaixo. Conteúdo mais denso do manual: se não
+   couber, o slide rola. ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-4);
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr auto auto 1fr;
+    align-items: center;
+    gap: 4px 10px;
+    padding: 14px var(--space-3);
+  }
+
+  .num {
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    font-size: 1.1rem;
+  }
+
+  .cardTitle {
+    grid-column: 3;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  .cardDesc {
+    grid-column: 1 / -1;
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    padding-top: var(--space-4);
+  }
+
+  .footerLead {
+    font-size: 0.85rem;
+  }
+
+  .footerNote {
+    font-size: 0.95rem;
+  }
+}

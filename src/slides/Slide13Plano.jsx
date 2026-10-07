@@ -1,6 +1,7 @@
 import styles from './Slide13Plano.module.css'
 import Reveal from '../components/Reveal'
 import PatternStrip from '../components/PatternStrip'
+import Grainient from '../components/Grainient'
 
 const PASSOS = [
   { n: '1', t: 'Diagnóstico especializado', d: 'Sem suposições. Sem Dr. Google. Primeiro passo: passar com um médico especializado de confiança.' },
@@ -13,6 +14,32 @@ const PASSOS = [
 export default function Slide13Plano({ active }) {
   return (
     <section className={`slide ${styles.slide}`}>
+      <div className={styles.bgLayer}>
+        <Grainient
+          color1="#000000"
+          color2="#292929"
+          color3="#454445"
+          timeSpeed={0.25}
+          colorBalance={0.0}
+          warpStrength={1.0}
+          warpFrequency={5.0}
+          warpSpeed={2.0}
+          warpAmplitude={50.0}
+          blendAngle={0.0}
+          blendSoftness={0.05}
+          rotationAmount={500.0}
+          noiseScale={2.0}
+          grainAmount={0.1}
+          grainScale={2.0}
+          grainAnimated={false}
+          contrast={1.5}
+          gamma={1.0}
+          saturation={1.0}
+          centerX={0.0}
+          centerY={0.0}
+          zoom={0.9}
+        />
+      </div>
       <PatternStrip side="right" active={active} />
       <div className={styles.header}>
         <Reveal as="p" active={active} index={0} className="eyebrow">O Plano Anti-Calvo</Reveal>

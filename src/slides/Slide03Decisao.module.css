@@ -74,3 +74,27 @@
 .ruleLine strong {
   font-weight: 600;
 }
+
+/* ─── Stories (mobile) ─── */
+@media (max-width: 768px) {
+  .slide {
+    gap: var(--space-6);
+  }
+
+  .title {
+    font-size: clamp(2.1rem, 10vw, 2.8rem);
+  }
+
+  .grid {
+    gap: var(--space-5);
+    padding-top: var(--space-5);
+  }
+
+  .note {
+    font-size: 0.95rem;
+  }
+
+  .ruleLine {
+    font-size: 1rem;
+  }
+}

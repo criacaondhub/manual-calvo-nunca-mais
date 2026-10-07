@@ -134,3 +134,49 @@
   border-top: 1px solid var(--line-on-dark);
   padding-top: var(--space-5);
 }
+
+/* ─── Stories (mobile): diferenciais em lista (ícone à esquerda) ─── */
+@media (max-width: 768px) {
+  .content {
+    gap: var(--space-4);
+  }
+
+  .subtitle {
+    font-size: 0.88rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .card {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    padding: 10px var(--space-3);
+  }
+
+  .icon {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+  }
+
+  .cardText {
+    font-size: 0.85rem;
+    text-align: left;
+  }
+
+  /* Linhas equilibradas — sem viúva na tarja. */
+  .tag {
+    font-size: 0.8rem;
+    padding: var(--space-3);
+    text-wrap: balance;
+  }
+
+  .closing {
+    font-size: 0.9rem;
+    padding-top: var(--space-4);
+  }
+}
