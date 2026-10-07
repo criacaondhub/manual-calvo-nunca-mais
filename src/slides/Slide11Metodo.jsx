@@ -38,7 +38,7 @@ export default function Slide11Metodo({ active, part }) {
 
       <div className={styles.grid}>
         {casos.map((c, i) => (
-          <Reveal as="div" active={active} index={casoBase + i} className={`glass glass-light ${styles.caso}`} key={c.grau}>
+          <Reveal as="div" active={active} index={casoBase + i} className={`glass glass-light no-hover ${styles.caso}`} key={c.grau}>
             <span className={styles.grau}>Grau {c.grau}</span>
             <div className={styles.pair}>
               <Frame src={c.antes} label="Antes" />

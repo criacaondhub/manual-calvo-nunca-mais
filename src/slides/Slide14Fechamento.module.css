@@ -1,14 +1,18 @@
 .slide {
   background: var(--carbon);
   color: var(--offwhite);
-  justify-content: space-between;
-  gap: var(--space-6);
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+  text-align: center;
 }
 
 .top {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-4);
+  max-width: 1000px;
   z-index: 2;
 }
 
@@ -41,9 +45,20 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-2);
-  border-top: 1px solid var(--line-on-dark);
-  padding-top: var(--space-5);
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Divisor curto e centralizado (no lugar de uma linha de ponta a ponta)
+   separando a provocação do bloco de cima. */
+.question::before {
+  content: '';
+  width: 64px;
+  height: 2px;
+  margin-bottom: var(--space-4);
+  background: var(--vivid-red);
 }
 
 .question p {
@@ -63,6 +78,7 @@
 .ctas {
   z-index: 2;
   display: flex;
+  justify-content: center;
   gap: var(--space-4);
   flex-wrap: wrap;
 }
@@ -87,19 +103,10 @@
   transform: scale(1.02);
 }
 
-
-
 /* ─── Stories (mobile): CTAs empilhados em largura total ─── */
 @media (max-width: 768px) {
   .slide {
     gap: var(--space-5);
-  }
-
-  /* Conteúdo todo centralizado no story. */
-  .top,
-  .question {
-    align-items: center;
-    text-align: center;
   }
 
   .question {
@@ -132,6 +139,7 @@
   .lead,
   .question p {
     font-size: 0.92rem;
+    text-wrap: balance;
   }
 
   .question {
@@ -145,6 +153,7 @@
 
   .ctas {
     flex-direction: column;
+    width: 100%;
     gap: 10px;
   }
 

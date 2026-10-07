@@ -36,7 +36,7 @@ export default function Slide12Vantagem({ active }) {
         </div>
 
         <div className={styles.boxes}>
-          <div className={`glass glass-light ${styles.box}`}>
+          <div className={`glass glass-light no-hover ${styles.box}`}>
             <p className={styles.boxHead}>Decidir cedo significa</p>
             <ul className={styles.list}>
               {CEDO.map((t, i) => (
@@ -45,7 +45,7 @@ export default function Slide12Vantagem({ active }) {
             </ul>
           </div>
 
-          <div className={`glass glass-light ${styles.box} ${styles.boxAlert}`}>
+          <div className={`glass glass-light no-hover ${styles.box} ${styles.boxAlert}`}>
             <p className={`${styles.boxHead} ${styles.boxHeadAlert}`}>Postergar significa</p>
             <ul className={styles.list}>
               {POSTERGAR.map((t, i) => (

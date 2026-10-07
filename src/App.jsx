@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import SlideContainer from './components/SlideContainer'
 import ProgressIndicator from './components/ProgressIndicator'
 import StoriesContainer from './components/StoriesContainer'
@@ -40,41 +40,17 @@ const SLIDES = [
 // e viram mais de um story.
 const MOBILE_SLIDES = SLIDES.flatMap((S) => S.mobileParts ?? [S])
 
-// Retoma a leitura de onde a pessoa parou (recarregar ou voltar outro
-// dia). Mobile e desktop têm contagens diferentes, então cada formato
-// guarda a própria posição. localStorage pode estar bloqueado (aba
-// anônima, dados limpos) — aí simplesmente começa da capa.
-const storageKey = (mobile) => `calvo-nunca-mais:slide:${mobile ? 'mobile' : 'desktop'}`
-
-function readSlide(mobile) {
-  const total = mobile ? MOBILE_SLIDES.length : SLIDES.length
-  try {
-    const saved = Number(localStorage.getItem(storageKey(mobile)))
-    return Number.isInteger(saved) && saved >= 0 && saved < total ? saved : 0
-  } catch {
-    return 0
-  }
-}
-
 export default function App() {
   const isMobile = useIsMobile()
   const [mode, setMode] = useState(isMobile)
-  const [currentSlide, setCurrentSlide] = useState(() => readSlide(isMobile))
+  const [currentSlide, setCurrentSlide] = useState(0)
 
-  // Trocou de formato (girou o tablet, redimensionou a janela): carrega a
-  // posição salva do outro formato antes de renderizar.
+  // Trocou de formato (girou o tablet, redimensionou a janela): mobile e
+  // desktop têm contagens diferentes, então recomeça da capa.
   if (mode !== isMobile) {
     setMode(isMobile)
-    setCurrentSlide(readSlide(isMobile))
+    setCurrentSlide(0)
   }
-
-  useEffect(() => {
-    try {
-      localStorage.setItem(storageKey(mode), String(currentSlide))
-    } catch {
-      /* sem storage: só não lembra a posição */
-    }
-  }, [mode, currentSlide])
 
   const handleSlideChange = useCallback((index) => {
     setCurrentSlide(index)
@@ -101,7 +77,6 @@ export default function App() {
   return (
     <>
       <SlideContainer
-        initialSlide={currentSlide}
         onSlideChange={handleSlideChange}
         onNavigate={navigate}
         totalSlides={SLIDES.length}

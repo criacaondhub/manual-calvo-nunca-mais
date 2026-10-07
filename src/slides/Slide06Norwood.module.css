@@ -56,7 +56,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-3) var(--space-3);
+  border: 1px solid var(--vivid-red);
+  border-radius: var(--radius-md);
 }
 
 .grauImg {
@@ -138,8 +141,6 @@
   .grauSlot {
     gap: 6px;
     padding: 14px 10px 10px;
-    border: 1px solid var(--vivid-red);
-    border-radius: var(--radius-md);
   }
 
   /* Número ímpar de graus (5–7): o último box fica centralizado, com a
