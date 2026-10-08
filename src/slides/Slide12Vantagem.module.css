@@ -44,7 +44,7 @@
   font-style: italic;
   font-size: var(--fs-h2);
   line-height: 1.4;
-  color: var(--vivid-red);
+  color: var(--text-on-light);
   text-align: center;
   text-wrap: balance;
 }
@@ -133,6 +133,10 @@
 .closing strong {
   color: var(--text-on-light);
   font-weight: 600;
+}
+
+.closingAsk {
+  color: var(--vivid-red);
 }
 
 .finalLine {

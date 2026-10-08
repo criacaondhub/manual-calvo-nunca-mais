@@ -4,11 +4,11 @@ import PatternStrip from '../components/PatternStrip'
 import Grainient from '../components/Grainient'
 
 const PASSOS = [
-  { n: '1', t: 'Diagnóstico especializado', d: 'Sem suposições. Sem Dr. Google. Primeiro passo: passar com um médico especializado de confiança.' },
-  { n: '2', t: 'Definição de estágio', d: 'Exame físico define o grau da calvície, e cada grau exige conduta diferente.' },
-  { n: '3', t: 'Tratamento estratégico', d: 'Preservar é melhor que reconstruir. Cada caso precisa ser avaliado e orientado sobre as melhores alternativas.' },
-  { n: '4', t: 'Monitoramento', d: 'Dinâmico e constante. Na Clínica Ultramar, nossos pacientes têm suporte clínico vitalício.' },
-  { n: '5', t: 'Intervenção cirúrgica, se indicada', d: 'O melhor caminho para restaurar áreas sem cabelo. Bem planejada. Resultado elegante e natural.' },
+  { n: '1', t: 'Diagnóstico com especialista', d: 'Sem achismo, sem Dr. Google. O primeiro passo é consultar um médico de confiança.' },
+  { n: '2', t: 'Fase da calvície', d: 'Um exame mostra em que ponto você está. Cada fase pede um caminho diferente.' },
+  { n: '3', t: 'Tratamento sob medida', d: 'Proteger o cabelo que você tem vale mais do que reconstruir depois. Cada caso tem seu plano.' },
+  { n: '4', t: 'Acompanhamento', d: 'O cuidado não acaba na consulta. Na Clínica Ultramar, o paciente é acompanhado por toda a vida.' },
+  { n: '5', t: 'Transplante, se for indicado', d: 'Para recuperar áreas sem cabelo, costuma ser o melhor caminho. Bem planejado, o resultado fica natural.' },
 ]
 
 export default function Slide13Plano({ active }) {
@@ -42,8 +42,8 @@ export default function Slide13Plano({ active }) {
       </div>
       <PatternStrip side="right" active={active} />
       <div className={styles.header}>
-        <Reveal as="p" active={active} index={0} className="eyebrow">O Plano Anti-Calvo</Reveal>
-        <Reveal as="h2" active={active} index={1} className={styles.title}>Elegância está em antecipar, não em reagir.</Reveal>
+        <Reveal as="h2" active={active} index={0} className={styles.title}>O PLANO ANTI-CALVO</Reveal>
+        <Reveal as="p" active={active} index={1} className="eyebrow">Elegância está em antecipar, não em reagir.</Reveal>
       </div>
 
       <div className={styles.steps}>
@@ -57,8 +57,7 @@ export default function Slide13Plano({ active }) {
       </div>
 
       <Reveal as="p" active={active} index={PASSOS.length + 2} className={styles.footer}>
-        Transplante capilar é permanente. Nunca arrisque operar sem ter
-        certeza das referências e do padrão de trabalho daquela clínica.
+        Transplante capilar é para sempre. Antes de operar, confira a experiência e o padrão de trabalho da clínica.
       </Reveal>
     </section>
   )

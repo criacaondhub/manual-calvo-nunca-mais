@@ -2,6 +2,7 @@ import styles from './Slide14Fechamento.module.css'
 import Reveal from '../components/Reveal'
 import PatternStrip from '../components/PatternStrip'
 import Grainient from '../components/Grainient'
+import { ArrowRight } from 'lucide-react'
 
 const WHATSAPP_URL =
   'https://api.whatsapp.com/send/?phone=5511988392645&text=Olá%21+Vim+pelo+ebook+e+quero+agendar+uma+consulta+com+o+Dr.+Rafael+Ultramar.&type=phone_number&app_absent=0'
@@ -40,7 +41,7 @@ export default function Slide14Fechamento({ active }) {
       <div className={styles.top}>
         <Reveal as="p" active={active} index={0} className={styles.kicker}>Controle não é sobre vaidade. É sobre decisão.</Reveal>
         <Reveal as="h2" active={active} index={1} className={styles.title}>
-          Ser anti-calvo não é ser contra{' '}<br />quem passa por esse problema.
+          Ser <span className={styles.titleHighlight}>anti-calvo</span> não é ser contra{' '}<br />quem passa por esse problema.
         </Reveal>
         <Reveal as="p" active={active} index={2} className={styles.lead}>
           É saber que informação + ação podem definir todo o seu futuro.
@@ -62,7 +63,8 @@ export default function Slide14Fechamento({ active }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Agendar consulta com o Dr. Rafael
+          Agendar consulta com o Dr. Rafael Ultramar
+          <ArrowRight size={18} strokeWidth={2.2} />
         </Reveal>
       </div>
     </section>

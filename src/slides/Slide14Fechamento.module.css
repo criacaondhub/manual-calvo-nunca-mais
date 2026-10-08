@@ -34,6 +34,11 @@
   color: var(--offwhite);
 }
 
+.titleHighlight {
+  color: var(--vivid-red);
+  font-style: italic;
+}
+
 .lead {
   font-family: var(--font-body);
   font-weight: 500;
@@ -83,11 +88,17 @@
   flex-wrap: wrap;
 }
 
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(203, 44, 48, 0.55); }
+  50%       { box-shadow: 0 0 0 10px rgba(203, 44, 48, 0); }
+}
+
 .ctaPrimary {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  background: var(--vivid-red);
+  background: linear-gradient(135deg, #cb2c30 0%, #8b1a1c 60%, #cb2c30 100%);
+  background-size: 200% 200%;
   color: var(--offwhite-1);
   font-family: var(--font-body);
   font-weight: 600;
@@ -95,12 +106,22 @@
   padding: 20px 36px;
   border-radius: var(--radius-sm);
   text-decoration: none;
-  transition: background var(--transition-base), transform var(--transition-base);
+  transition: background-position 0.4s ease, transform var(--transition-base);
+  animation: ctaPulse 2.4s ease-in-out infinite;
 }
 
 .ctaPrimary:hover {
-  background: #E13338;
+  background-position: 100% 100%;
   transform: scale(1.02);
+  animation: none;
+}
+
+.ctaPrimary svg {
+  transition: transform 0.25s ease;
+}
+
+.ctaPrimary:hover svg {
+  transform: translateX(4px);
 }
 
 /* ─── Stories (mobile): CTAs empilhados em largura total ─── */

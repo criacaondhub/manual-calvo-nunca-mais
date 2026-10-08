@@ -29,9 +29,7 @@ export default function Slide12Vantagem({ active }) {
             <span className={styles.titleAccent}>sempre tem vantagem.</span>
           </Reveal>
           <Reveal as="p" active={active} index={1} className={styles.subtitle}>
-            Uma das características comuns entre pacientes que<br />
-            alcançam resultados superiores vs aqueles que<br />
-            apenas "corrigem danos" está no timing.
+            Quem tem os melhores resultados costuma ter algo em comum: começou cedo.
           </Reveal>
         </div>
 
@@ -61,21 +59,8 @@ export default function Slide12Vantagem({ active }) {
           index={base + CEDO.length + POSTERGAR.length}
           className={styles.closing}
         >
-          {/* Os espaços antes de cada <br /> seguram a separação das palavras
-              quando as quebras somem no mobile. */}
-          Você pode até escolher não fazer nada. Mas essa{' '}<br />
-          também é uma decisão, e ela traz consequências.{' '}<br />
-          A pergunta não é "se" a calvície vai progredir.{' '}
-          <span className={styles.closingAsk}>A pergunta é:</span>
-        </Reveal>
-
-        <Reveal
-          as="h3"
-          active={active}
-          index={base + CEDO.length + POSTERGAR.length + 1}
-          className={styles.finalLine}
-        >
-          Você vai estar no controle quando isso acontecer?
+          Não fazer nada também é uma escolha, e o cabelo continua caindo enquanto você decide.<br />
+          <span className={styles.closingAsk}>Quando a queda avançar, você vai estar preparado?</span>
         </Reveal>
       </div>
     </section>
