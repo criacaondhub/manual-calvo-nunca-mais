@@ -44,9 +44,8 @@ export default function Slide05Mecanismo({ active }) {
         <div className={styles.header}>
           <Reveal as="h2" active={active} index={0} className={styles.title}>Calvície não é queda de cabelo.<br /><span>É perda de potência.</span></Reveal>
           <Reveal as="p" active={active} index={1} className={styles.lead}>
-            Todo homem perde fios diariamente — isso é normal, fisiológico.
-            Mas a alopecia androgenética é outra história: um processo
-            hormonal e genético programado.
+            Todo homem perde fios diariamente , isso é normal. Mas a alopecia androgenética é outra história: um processo
+            hormonal e genético programado
           </Reveal>
         </div>
 
@@ -64,8 +63,8 @@ export default function Slide05Mecanismo({ active }) {
         </div>
 
         <Reveal as="p" active={active} index={PASSOS.length + 2} className={styles.footerNote}>
-          O fio não "cai". Ele enfraquece —<br />
-          por isso o estágio da sua calvície importa, e muito.
+          O fio não "cai". Ele enfraquece!<br />
+          Por isso o estágio da sua calvície importa, e muito.
         </Reveal>
       </div>
     </section>

@@ -3,10 +3,10 @@ import Reveal from '../components/Reveal'
 import PatternStrip from '../components/PatternStrip'
 
 const CASOS = [
-  { grau: '04', antes: '/images/metodo-ultramar/grau04-antes.jpg', depois: '/images/metodo-ultramar/grau04-depois.jpg' },
-  { grau: '05', antes: '/images/metodo-ultramar/grau05-antes.jpg', depois: '/images/metodo-ultramar/grau05-depois.jpg' },
-  { grau: '06', antes: '/images/metodo-ultramar/grau06-antes.jpg', depois: '/images/metodo-ultramar/grau06-depois.jpg' },
-  { grau: '07', antes: '/images/metodo-ultramar/grau07-antes.jpg', depois: '/images/metodo-ultramar/grau07-depois.jpg' },
+  { grau: '04', antes: '/images/metodo-ultramar/grau04-antes.webp', depois: '/images/metodo-ultramar/grau04-depois.webp' },
+  { grau: '05', antes: '/images/metodo-ultramar/grau05-antes.webp', depois: '/images/metodo-ultramar/grau05-depois.webp' },
+  { grau: '06', antes: '/images/metodo-ultramar/grau06-antes.webp', depois: '/images/metodo-ultramar/grau06-depois.webp' },
+  { grau: '07', antes: '/images/metodo-ultramar/grau07-antes.webp', depois: '/images/metodo-ultramar/grau07-depois.webp' },
 ]
 
 function Frame({ src, label }) {

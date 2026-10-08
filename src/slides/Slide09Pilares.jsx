@@ -6,23 +6,23 @@ import Grainient from '../components/Grainient'
 const PILARES = [
   {
     n: '01',
-    t: 'Controle da inflamação folicular',
-    d: 'Atua no mecanismo da calvície controlando degeneração causada pelo DHT. É a base clínica para modificar a história natural da sua calvície. Dutasterida, Finasterida, Actrisave, Saw Palmetto são exemplos de terapias que cuidam desse problema, em diferentes graus de eficácia.',
+    t: 'Frear a queda',
+    d: ['Trata a causa principal da calvície,', 'que é um hormônio que enfraquece os fios aos poucos.'],
   },
   {
     n: '02',
-    t: 'Estímulo do desenvolvimento e crescimento do fio',
-    d: 'Ativos que estimulam a fase anágena que determina o tempo e intensidade de crescimento do fio capilar. Minoxidil é o principal ativo aqui.',
+    t: 'Estimular o crescimento',
+    d: 'Faz o fio nascer mais forte e crescer por mais tempo.',
   },
   {
     n: '03',
-    t: 'Terapias coadjuvantes com aminoácidos, minerais, antioxidantes',
-    d: 'Melhoram as condições do couro cabeludo, ajuda na circulação local e dá suporte ao crescimento saudável do fio. Oxina Tricogena, Zinco, Biotina, Multivitamínicos entregam esse papel.',
+    t: 'Nutrir o couro cabeludo',
+    d: 'Vitaminas e minerais deixam a pele da cabeça mais saudável para o fio crescer.',
   },
   {
     n: '04',
-    t: 'Estímulo direto no couro cabeludo',
-    d: 'PRP, MMP, Mesoterapia, um universo de alternativas para estimular e regenerar o folículo atrofiado.',
+    t: 'Tratar direto no couro cabeludo',
+    d: ['Procedimentos feitos no consultório', 'para reativar folículos enfraquecidos.'],
   },
 ]
 
@@ -33,7 +33,7 @@ export default function Slide09Pilares({ active, part }) {
   const showHeader = part !== 2
   const showFooter = part !== 1
   const pilares = part === 1 ? PILARES.slice(0, 2) : part === 2 ? PILARES.slice(2) : PILARES
-  const cardBase = showHeader ? 2 : 0
+  const cardBase = showHeader ? 3 : 0
   const footerBase = cardBase + pilares.length
 
   return (
@@ -73,9 +73,11 @@ export default function Slide09Pilares({ active, part }) {
               Vou ser direto com você:
             </Reveal>
             <Reveal as="p" active={active} index={1} className={styles.subtitle}>
-              Medicina capilar séria é <strong>individualizada.</strong><br />
-              Não existe bala de prata. Não existe fórmula universal.<br />
-              <span>E, principalmente, NÃO EXISTE RESULTADO IMEDIATO.</span>
+              Cada cabeça pede um tratamento diferente.<br />
+              Não existe fórmula universal e nenhum resultado aparece de um dia para o outro.
+            </Reveal>
+            <Reveal as="p" active={active} index={2} className={styles.redBox}>
+              O tratamento de queda de cabelo costuma trabalhar em 4 frentes:
             </Reveal>
           </div>
         )}
@@ -91,7 +93,11 @@ export default function Slide09Pilares({ active, part }) {
             >
               <span className={styles.num}>{p.n}</span>
               <h3 className={styles.cardTitle}>{p.t}</h3>
-              <p className={styles.cardDesc}>{p.d}</p>
+              <p className={styles.cardDesc}>
+                {Array.isArray(p.d)
+                  ? p.d.map((line, i) => <span key={i}>{line}{i < p.d.length - 1 && <br />}</span>)
+                  : p.d}
+              </p>
             </Reveal>
           ))}
         </div>
@@ -99,11 +105,11 @@ export default function Slide09Pilares({ active, part }) {
         {showFooter && (
           <div className={styles.footer}>
             <Reveal as="p" active={active} index={footerBase} className={styles.footerLead}>
-              Cada caso exige uma abordagem diferente.<br />
-              Dosagem, indicação, contraindicação e acompanhamento são determinantes.
+              O que define o seu plano: dose, indicação e acompanhamento médico.
             </Reveal>
             <Reveal as="p" active={active} index={footerBase + 1} className={styles.footerNote}>
-              Não é "tentar algo qualquer", é implementar um plano baseado em evidência e diagnóstico médico.
+              Chutar tratamentos por conta própria costuma dar errado.<br />
+              O caminho certo começa com diagnóstico médico.
             </Reveal>
           </div>
         )}

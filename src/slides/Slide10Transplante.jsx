@@ -6,10 +6,10 @@ import { Scissors, PenTool, Layers, Users, BadgeCheck } from 'lucide-react'
 
 const DIFERENCIAIS = [
   { icon: Scissors, texto: 'Técnica cirúrgica com e sem raspagem do cabelo' },
-  { icon: PenTool, texto: 'Visagismo individual para linha frontal perfeita ao seu padrão facial' },
+  { icon: PenTool, texto: ['Visagismo individual para linha frontal', 'perfeita ao seu padrão facial'] },
   { icon: Layers, texto: 'Extrema densidade respeitando naturalidade' },
-  { icon: Users, texto: 'Time dedicado para acompanhar seu pós-operatório' },
-  { icon: BadgeCheck, texto: 'Resultado elegante, atemporal e extremamente natural' },
+  { icon: Users, texto: ['Time dedicado para acompanhar', 'seu pós-operatório'] },
+  { icon: BadgeCheck, texto: ['Resultado elegante, atemporal', 'e extremamente natural'] },
 ]
 
 export default function Slide10Transplante({ active }) {
@@ -69,7 +69,11 @@ export default function Slide10Transplante({ active }) {
               key={texto}
             >
               <Icon className={styles.icon} size={32} strokeWidth={1.6} aria-hidden="true" />
-              <p className={styles.cardText}>{texto}</p>
+              <p className={styles.cardText}>
+                {Array.isArray(texto)
+                  ? texto.map((line, i) => <span key={i}>{line}{i < texto.length - 1 && <br />}</span>)
+                  : texto}
+              </p>
             </Reveal>
           ))}
         </div>
@@ -79,15 +83,6 @@ export default function Slide10Transplante({ active }) {
           Sem tratamento clínico associado, é estratégia incompleta.
         </Reveal>
 
-        <Reveal
-          as="p"
-          active={active}
-          index={4 + DIFERENCIAIS.length}
-          className={styles.closing}
-        >
-          Transplante capilar não deve denunciar que foi feito.<br />
-          Deve apenas restaurar sua presença, seus fios, suas liberdades.
-        </Reveal>
       </div>
     </section>
   )

@@ -4,9 +4,9 @@ import PatternStrip from '../components/PatternStrip'
 import Grainient from '../components/Grainient'
 
 const CEDO = [
-  'Mantêm área doadora forte para um eventual transplante',
-  'Precisam de intervenções menores',
-  'Às vezes evitam cirurgia completamente',
+  'Mantêm área doadora forte;',
+  'Precisam de intervenções menores;',
+  'Às vezes evitam cirurgia completamente.',
 ]
 const ESPERA = [
   'Perdem capacidade de recuperação',
@@ -85,8 +85,7 @@ export default function Slide07Timing({ active }) {
           index={base + CEDO.length + ESPERA.length}
           className={styles.identity}
         >
-          Calvície mexe com identidade. Não é "apenas estética". É presença.
-          <strong> Sua imagem comunica antes de você falar uma só palavra.</strong>
+          Não é "apenas estética".  É Sua imagem comunicando antes de você falar uma só palavra.
         </Reveal>
 
         <Reveal
@@ -95,7 +94,7 @@ export default function Slide07Timing({ active }) {
           index={base + CEDO.length + ESPERA.length + 1}
           className={styles.tag}
         >
-          Você pode até fingir que não importa. <span className={styles.tagEnd}>Mas importa.</span>
+          Você pode até fingir que não, mas importa.
         </Reveal>
       </div>
     </section>
